@@ -34,9 +34,9 @@ GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
 	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
 
 include $(INCLUDE_DIR)/package.mk
-include ../../lang/golang/golang-package.mk
+include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-define Package/adguardhome
+define Package/AdGuardHome
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=Network-wide ads and trackers blocking DNS server
@@ -44,11 +44,11 @@ define Package/adguardhome
 	DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
-define Package/adguardhome/conffiles
+define Package/AdGuardHome/conffiles
 /etc/AdGuardHome.yaml
 endef
 
-define Package/adguardhome/description
+define Package/AdGuardHome/description
 Free and open source, powerful network-wide ads and trackers blocking DNS server.
 endef
 
@@ -62,11 +62,11 @@ define Build/Compile
 	)
 endef
 
-define Package/adguardhome/install
+define Package/AdGuardHome/install
 	$(call GoPackage/Package/Install/Bin,$(1))
 #	$(INSTALL_DIR) $(1)/etc/init.d
 #	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
 endef
 
-$(eval $(call GoBinPackage,adguardhome))
-$(eval $(call BuildPackage,adguardhome))
+$(eval $(call GoBinPackage,AdGuardHome))
+$(eval $(call BuildPackage,AdGuardHome))
