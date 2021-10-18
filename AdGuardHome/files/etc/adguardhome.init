@@ -1,7 +1,7 @@
 #!/bin/sh /etc/rc.common
 
 PROG=/usr/bin/AdGuardHome
-WORK_DIR=/tmp/adguardhome
+WORK_DIR=/etc/AdGuardHome
 
 USE_PROCD=1
 
