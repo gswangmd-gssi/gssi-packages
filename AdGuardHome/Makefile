@@ -1,12 +1,11 @@
 #
-# Copyright (C) 2015-2016 OpenWrt.org
 # This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE.txt for more information.
+# See /LICENSE for more information.
 #
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=AdGuardHome
+PKG_NAME:=adguardhome
 PKG_VERSION:=0.106.3
 PKG_RELEASE:=1
 
@@ -23,13 +22,9 @@ PKG_BUILD_DEPENDS:=golang/host node/host node-yarn/host packr/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
-PKG_CONFIG_DEPENDS:= \
-	CONFIG_ADGUARDHOME_COMPRESS_GOPROXY \
-	CONFIG_ADGUARDHOME_COMPRESS_UPX
-
 GO_PKG:=github.com/AdguardTeam/AdGuardHome
-GO_PKG_EXCLUDES:=dhcpd/standalone
-GO_PKG_LDFLAGS:=-s -w
+GO_PKG_BUILD_PKG:=github.com/AdguardTeam/AdGuardHome
+
 AGH_BUILD_TIME:=$(shell date -d @$(SOURCE_DATE_EPOCH) +%FT%TZ%z)
 AGH_VERSION_PKG:=github.com/AdguardTeam/AdGuardHome/internal/version
 GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
@@ -39,9 +34,9 @@ GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
 	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
 
 include $(INCLUDE_DIR)/package.mk
-include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
+include ../../lang/golang/golang-package.mk
 
-define Package/AdGuardHome
+define Package/adguardhome
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=Network-wide ads and trackers blocking DNS server
@@ -49,28 +44,13 @@ define Package/AdGuardHome
 	DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
-define Package/AdGuardHome/conffiles
-/etc/AdGuardHome.yaml
+define Package/adguardhome/conffiles
+/etc/adguardhome.yaml
 endef
 
-define Package/AdGuardHome/description
+define Package/adguardhome/description
 Free and open source, powerful network-wide ads and trackers blocking DNS server.
 endef
-
-define Package/$(PKG_NAME)/config
-config ADGUARDHOME_COMPRESS_GOPROXY
-	bool "Compiling with GOPROXY proxy"
-	default n
-
-config ADGUARDHOME_COMPRESS_UPX
-	bool "Compress executable files with UPX"
-	default n
-endef
-
-ifeq ($(CONFIG_ADGUARDHOME_COMPRESS_GOPROXY),y)
-export GO111MODULE=on
-export GOPROXY=https://goproxy.baidu.com
-endif
 
 define Build/Compile
 	( \
@@ -80,18 +60,13 @@ define Build/Compile
 		popd ; \
 		$(call GoPackage/Build/Compile) ; \
 	)
-ifeq ($(CONFIG_ADGUARDHOME_COMPRESS_UPX),y)
-	$(STAGING_DIR_HOST)/bin/upx --lzma --best $(GO_PKG_BUILD_BIN_DIR)/AdGuardHome
-endif
 endef
 
-define Package/AdGuardHome/install
-	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/AdGuardHome $(1)/usr/bin/AdGuardHome
-	$(INSTALL_DIR) $(1)/etc
-	$(CP) -r ./files/etc $(1)/etc
+define Package/adguardhome/install
+	$(call GoPackage/Package/Install/Bin,$(1))
+#	$(INSTALL_DIR) $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
 endef
 
-$(eval $(call GoBinPackage,AdGuardHome))
-$(eval $(call BuildPackage,AdGuardHome))
+$(eval $(call GoBinPackage,adguardhome))
+$(eval $(call BuildPackage,adguardhome))
