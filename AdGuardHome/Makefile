@@ -50,7 +50,7 @@ define Package/AdGuardHome
 endef
 
 define Package/AdGuardHome/conffiles
-/etc/adguardhome.yaml
+/etc/AdGuardHome.yaml
 endef
 
 define Package/AdGuardHome/description
