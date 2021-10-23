@@ -54,7 +54,7 @@ endef
 
 define Package/adguardhome/postinst
 #!/bin/sh
-	/etc/init.d/AdGuardHome restart
+# /etc/init.d/AdGuardHome restart
 endef
 
 define Package/adguardhome/description
@@ -90,7 +90,7 @@ endif
 endef
 
 #define Package/adguardhome/install
-#	$(call GoPackage/Package/Install/Bin,$(1))
+	$(call GoPackage/Package/Install/Bin,$(1))
 #	$(INSTALL_DIR) $(1)/etc/init.d
 #	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
 #endef
