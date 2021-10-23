@@ -221,8 +221,7 @@ EXIT(){
 	exit $1
 }
 main(){
-	
-	check_if_already_running
+	# check_if_already_running
 	check_latest_version $1
 }
 	trap "EXIT 1" SIGTERM SIGINT
