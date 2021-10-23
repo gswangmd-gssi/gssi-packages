@@ -52,10 +52,10 @@ define Package/adguardhome/conffiles
 /etc/adguardhome.yaml
 endef
 
-define Package/adguardhome/postinst
-#!/bin/sh
-# /etc/init.d/AdGuardHome restart
-endef
+#define Package/adguardhome/postinst
+## !/bin/sh
+#	/etc/init.d/AdGuardHome restart
+#endef
 
 define Package/adguardhome/description
 Free and open source, powerful network-wide ads and trackers blocking DNS server.
@@ -89,11 +89,11 @@ ifeq ($(CONFIG_ADGUARDHOME_COMPRESS_UPX),y)
 endif
 endef
 
-#define Package/adguardhome/install
+define Package/adguardhome/install
 	$(call GoPackage/Package/Install/Bin,$(1))
 #	$(INSTALL_DIR) $(1)/etc/init.d
 #	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
-#endef
+endef
 
 $(eval $(call GoBinPackage,adguardhome))
 $(eval $(call BuildPackage,adguardhome))
