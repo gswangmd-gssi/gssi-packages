@@ -1,7 +1,7 @@
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
-# https://github.com/kenzok8/small-package/tree/main/adguardhome
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -50,10 +50,10 @@ define Package/adguardhome/conffiles
 /etc/adguardhome.yaml
 endef
 
-# define Package/adguardhome/postinst
-# !/bin/sh
+define Package/adguardhome/postinst
+#!/bin/sh
 #	/etc/init.d/AdGuardHome restart
-# endef
+endef
 
 define Package/adguardhome/description
 Free and open source, powerful network-wide ads and trackers blocking DNS server.
@@ -80,11 +80,11 @@ define Build/Compile
 	)
 endef
 
-define Package/adguardhome/install
-	$(call GoPackage/Package/Install/Bin,$(1))
+#define Package/adguardhome/install
+#	$(call GoPackage/Package/Install/Bin,$(1))
 #	$(INSTALL_DIR) $(1)/etc/init.d
 #	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
-endef
+#endef
 
 $(eval $(call GoBinPackage,adguardhome))
 $(eval $(call BuildPackage,adguardhome))
