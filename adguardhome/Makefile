@@ -47,7 +47,7 @@ define Package/adguardhome
 endef
 
 define Package/adguardhome/conffiles
-/etc/adguardhome.yaml
+/etc/AdGuardHome.yaml
 endef
 
 define Package/adguardhome/postinst
