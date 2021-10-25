@@ -1,7 +1,7 @@
 # This is free software, licensed under the Apache License, Version 2.0 .
 # Original Source: 
 # Source code from https://github.com/kenzok8/small-package
-# Wadnmingde 2020.10.25
+# Wangmingde 2020.10.25
 
 include $(TOPDIR)/rules.mk
 

@@ -2,7 +2,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 # Source code from https://github.com/kenzok8/small-package
-# Wadnmingde 2020.10.25
+# Wangmingde 2020.10.25
 
 include $(TOPDIR)/rules.mk
 
@@ -51,10 +51,10 @@ define Package/adguardhome/conffiles
 /etc/AdGuardHome.yaml
 endef
 
-define Package/adguardhome/postinst
+#define Package/adguardhome/postinst
 #!/bin/sh
-#	/etc/init.d/AdGuardHome restart
-endef
+#/etc/init.d/AdGuardHome restart
+#endef
 
 define Package/adguardhome/description
 Free and open source, powerful network-wide ads and trackers blocking DNS server.
