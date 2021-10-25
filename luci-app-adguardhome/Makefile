@@ -1,7 +1,7 @@
 # This is free software, licensed under the Apache License, Version 2.0 .
 # Original Source: 
-#   svn co https://github.com/NueXini/NueXini_Packages/trunk/luci-app-adguardhome
-# Modifield by WangMingde 2021-10-24
+# Source code from https://github.com/kenzok8/small-package
+# Wadnmingde 2020.10.25
 
 include $(TOPDIR)/rules.mk
 

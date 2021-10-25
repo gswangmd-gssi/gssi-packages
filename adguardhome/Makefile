@@ -1,7 +1,8 @@
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
-#
+# Source code from https://github.com/kenzok8/small-package
+# Wadnmingde 2020.10.25
 
 include $(TOPDIR)/rules.mk
 
