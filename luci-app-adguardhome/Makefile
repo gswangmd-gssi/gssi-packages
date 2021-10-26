@@ -1,5 +1,6 @@
 # This is free software, licensed under the Apache License, Version 2.0 .
-#
+# svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
+# Modifield by Wangmingde 2021-10-26
 
 include $(TOPDIR)/rules.mk
 
