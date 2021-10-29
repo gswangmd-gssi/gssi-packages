@@ -90,13 +90,17 @@ tls:
   private_key_path: ""
 filters:
 - enabled: true
+  url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+  name: AdGuard DNS filter
+  id: 1635491400
+- enabled: true
   url: https://anti-ad.net/easylist.txt
   name: 'CHN: anti-AD'
-  id: 1635458356
+  id: 1635492843
 - enabled: true
-  url: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
-  name: WindowsSpyBlocker - Hosts spy rules
-  id: 1635458357
+  url: https://adaway.org/hosts.txt
+  name: AdAway Default Blocklist
+  id: 1635492844
 whitelist_filters: []
 user_rules:
 - '@@||10jqka.com.cn^'
