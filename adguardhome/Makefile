@@ -84,7 +84,7 @@ define Package/adguardhome/install
 	$(call GoPackage/Package/Install/Bin,$(1))
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/adguardhome.init $(1)/etc/init.d/adguardhome
-	$(CP) -rf ./files/etc $(1)/etc
+	$(CP) -rf ./files/etc/* $(1)/etc
 endef
 
 $(eval $(call GoBinPackage,adguardhome))
