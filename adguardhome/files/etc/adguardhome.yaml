@@ -101,10 +101,6 @@ filters:
   url: https://anti-ad.net/easylist.txt
   name: 'CHN: anti-AD'
   id: 1635492843
-- enabled: true
-  url: https://adaway.org/hosts.txt
-  name: AdAway Default Blocklist
-  id: 1635492844
 whitelist_filters: []
 user_rules:
 - '@@||10jqka.com.cn^'
