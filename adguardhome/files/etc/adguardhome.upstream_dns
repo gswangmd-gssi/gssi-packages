@@ -1,1 +1,5 @@
-127.0.0.1:6053
+tls://dns.pub
+https://dns.pub/dns-query
+tls://dns.alidns.com
+https://dns.alidns.com/dns-query
+
