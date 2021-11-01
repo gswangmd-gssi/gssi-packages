@@ -62,12 +62,12 @@ endef
 define Package/$(PKG_NAME)/config
 config ADGUARDHOME_COMPRESS_GOPROXY
 	bool "Compiling with GOPROXY proxy"
-	default n
+	default y
 endef
 
 ifeq ($(CONFIG_ADGUARDHOME_COMPRESS_GOPROXY),y)
 export GO111MODULE=on
-export GOPROXY=https://goproxy.baidu.com
+export GOPROXY=https://goproxy.baidu.com/
 endif
 
 define Build/Compile
