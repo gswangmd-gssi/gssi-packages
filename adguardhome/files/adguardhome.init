@@ -18,9 +18,9 @@ start_service() {
   procd_set_param stdout 1
   procd_set_param stderr 1
   procd_close_instance
-  # Redirect port 53 to adguardhome Port 5553
-  iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5553
-  iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5553
-  [ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5553
-  [ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5553
 }
+# Redirect port 53 to adguardhome Port 5553
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5553  >/dev/null 2>&1
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5553  >/dev/null 2>&1
+[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5553  >/dev/null 2>&1
+[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5553  >/dev/null 2>&1
