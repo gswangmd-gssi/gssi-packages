@@ -62,7 +62,7 @@ endef
 define Package/$(PKG_NAME)/config
 config ADGUARDHOME_COMPRESS_GOPROXY
 	bool "Compiling with GOPROXY proxy"
-	default y
+	default n
 endef
 
 ifeq ($(CONFIG_ADGUARDHOME_COMPRESS_GOPROXY),y)
