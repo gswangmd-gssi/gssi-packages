@@ -48,6 +48,7 @@ endef
 
 define Package/adguardhome/conffiles
 /etc/adguardhome.yaml
+/etc/AdGuardHome/
 endef
 
 #define Package/adguardhome/postinst
