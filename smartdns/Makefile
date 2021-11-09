@@ -9,7 +9,7 @@ PKG_VERSION:=1.2021.35
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://www.github.com/pymumu/smartdns.git
+PKG_SOURCE_URL:=https://github.com/gswangmd-gssi/smartdns.git
 PKG_SOURCE_VERSION:=f50e4dd0813da9300580f7188e44ed72a27ae79c
 PKG_MIRROR_HASH:=skip
 
@@ -29,7 +29,7 @@ define Package/smartdns
   CATEGORY:=Network
   TITLE:=smartdns server
   DEPENDS:=+libpthread +libopenssl
-  URL:=https://www.github.com/pymumu/smartdns/
+  URL:=https://github.com/gswangmd-gssi/smartdns/
 endef
 
 define Package/smartdns/description
