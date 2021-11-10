@@ -3,27 +3,16 @@
 # See /LICENSE for more information.
 #
 
-#include $(TOPDIR)/rules.mk
-
-#PKG_NAME:=adguardhome
-#PKG_VERSION:=0.107.0-b.14
-#PKG_RELEASE:=
-
-#PKG_SOURCE_PROTO:=git
-#PKG_SOURCE_VERSION:=c0b14b481103b915c9200b3aea0cf9b5910d2248
-#PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome
-#PKG_MIRROR_HASH:=skip
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome
-PKG_VERSION:=0.106.3
-PKG_RELEASE:=1
+PKG_VERSION:=0.107.0-b.14
+PKG_RELEASE:=
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=v$(PKG_VERSION)
+PKG_SOURCE_VERSION:=c0b14b481103b915c9200b3aea0cf9b5910d2248
 PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome
-PKG_MIRROR_HASH:=bdf5ad833df90969cd82b9fb6a91846338c738ed01671fc768d867b592102f7c
+PKG_MIRROR_HASH:=skip
 
 PKG_LICENSE:=GPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE.txt
@@ -41,16 +30,11 @@ GO_PKG_BUILD_PKG:=github.com/AdguardTeam/AdGuardHome
 
 AGH_BUILD_TIME:=$(shell date -d @$(SOURCE_DATE_EPOCH) +%FT%TZ%z)
 AGH_VERSION_PKG:=github.com/AdguardTeam/AdGuardHome/internal/version
-#GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
-#	$(AGH_VERSION_PKG).version=v$(PKG_VERSION) \
-#	$(AGH_VERSION_PKG).buildtime=$(AGH_BUILD_TIME) \
-#	$(AGH_VERSION_PKG).goarm=$(GO_ARM) \
-#	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
-
-GO_PKG_LDFLAGS_X:= \
-	main.version=$(PKG_VERSION) \
-        main.channel=release
-        main.goarm=$(GOARM)
+GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
+	$(AGH_VERSION_PKG).version=v$(PKG_VERSION) \
+	$(AGH_VERSION_PKG).buildtime=$(AGH_BUILD_TIME) \
+	$(AGH_VERSION_PKG).goarm=$(GO_ARM) \
+	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
 
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
