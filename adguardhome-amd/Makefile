@@ -32,7 +32,7 @@ TAR_NAME:=AdGuardHome_linux_amd64
 
 PKG_SOURCE:=$(TAR_NAME).tar.gz
 
-PKG_SOURCE_URL:=https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
+PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome/releases/download/$(PKG_VERSION)/AdGuardHome_linux_amd64.tar.gz
 
 UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/amd64
 
