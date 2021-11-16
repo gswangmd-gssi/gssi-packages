@@ -8,14 +8,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=AdGuardHome
+PKG_NAME:=AdGuardHome-AMD
 PROJECT_NAME:=AdGuardHome
 PKG_VERSION:=v0.106.3
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/$(PKG_NAME)-amd
+define Package/$(PKG_NAME)
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=Network-wide ads & trackers blocking DNS server
@@ -51,7 +51,7 @@ endef
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/bin/AdGuardHome
-	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/AdGuardHome/$(PKG_NAME)
+	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/AdGuardHome
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
