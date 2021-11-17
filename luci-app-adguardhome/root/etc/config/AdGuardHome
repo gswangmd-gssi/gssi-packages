@@ -1,5 +1,5 @@
 config AdGuardHome 'AdGuardHome'
-	option enabled '0'
+	option enabled '1'
 	option httpport '3000'
 	option redirect 'redirect'
 	option configpath '/etc/AdGuardHome.yaml'
