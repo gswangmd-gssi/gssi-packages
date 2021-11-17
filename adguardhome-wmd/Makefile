@@ -81,7 +81,7 @@ endef
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/AdGuardHome
-	$(CP) -rf ./files/* $(1)/etc
+	$(CP) -rf ./files/AdGuardHome.yaml $(1)/etc/AdGuardHome.yaml
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
