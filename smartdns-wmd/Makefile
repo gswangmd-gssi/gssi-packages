@@ -4,7 +4,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=smartdns
+PKG_NAME:=smartdns-wmd
 PKG_VERSION:=1.2021.35
 PKG_RELEASE:=1
 
@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 MAKE_VARS += VER=$(PKG_VERSION)
 MAKE_PATH:=src
 
-define Package/smartdns
+define Package/smartdns-wmd
   SECTION:=net
   CATEGORY:=Network
   TITLE:=smartdns server
@@ -55,4 +55,4 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/smartdns.conf $(1)/etc/config/smartdns
 endef
 
-$(eval $(call BuildPackage,smartdns))
+$(eval $(call BuildPackage,smartdns-wmd))
