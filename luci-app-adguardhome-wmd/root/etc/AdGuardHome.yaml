@@ -16,27 +16,27 @@ dns:
   - 0.0.0.0
   port: 5553
   statistics_interval: 30
-  querylog_enabled: true
+  querylog_enabled: false
   querylog_file_enabled: true
   querylog_interval: 30
   querylog_size_memory: 1000
   anonymize_client_ip: false
   protection_enabled: true
-  blocking_mode: nxdomain
+  blocking_mode: default
   blocking_ipv4: ""
   blocking_ipv6: ""
-  blocked_response_ttl: 10
+  blocked_response_ttl: 60
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
   ratelimit: 0
   ratelimit_whitelist: []
   refuse_any: false
   upstream_dns:
-  - 127.0.0.1
+  - 127.0.0.1:53
   upstream_dns_file: ""
   bootstrap_dns:
-  - 127.0.0.1
-  all_servers: false
+  - 127.0.0.1:53
+  all_servers: true
   fastest_addr: false
   allowed_clients: []
   disallowed_clients: []
