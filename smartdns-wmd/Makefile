@@ -27,7 +27,7 @@ MAKE_PATH:=src
 define Package/smartdns-wmd
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=smartdns server
+  TITLE:=smartdns server (Modified by Wang Mingde)
   DEPENDS:=+libpthread +libopenssl
   URL:=https://github.com/pymumu/smartdns/
 endef
