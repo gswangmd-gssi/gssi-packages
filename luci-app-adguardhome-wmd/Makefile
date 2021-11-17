@@ -21,7 +21,7 @@ define Package/luci-app-adguardhome-wmd
 endef
 
 define Package/luci-app-adguardhome-wmd/description
-	LuCI support for adguardhome
+	LuCI support for adguardhome (Modified by Wang Mingde)
 endef
 
 define Build/Prepare
