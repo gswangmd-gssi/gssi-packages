@@ -18,7 +18,7 @@ define Package/luci-app-adguardhome
 	TITLE:=LuCI app for adguardhome
 	PKG_MAINTAINER:=<https://github.com/rufengsuixing/luci-app-adguardhome>
 	PKGARCH:=all
-	DEPENDS:=+!wget-ssl&&!curl:wget-ssl +adguardhome-wmd +smartdns=wmd +PACKAGE_$(PKG_NAME)_INCLUDE_binary:AdGuardHome
+	DEPENDS:=+!wget-ssl&&!curl:wget-ssl +adguardhome-wmd +smartdns-wmd +PACKAGE_$(PKG_NAME)_INCLUDE_binary:AdGuardHome
 endef
 
 LUCI_DESCRIPTION:=LuCI support for AdGuardHome
