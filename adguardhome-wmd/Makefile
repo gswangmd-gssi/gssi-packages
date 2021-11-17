@@ -18,7 +18,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/$(PKG_NAME)
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=Network-wide ads & trackers blocking DNS server (Modified by Wang Mingde)
+	TITLE:=Network-wide ads & trackers blocking DNS server 
 	URL:=https://github.com/AdguardTeam/AdGuardHome
 endef
 
