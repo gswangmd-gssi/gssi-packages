@@ -3,14 +3,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-adguardhome
+PKG_NAME:=luci-app-adguardhome-wmd
 PKG_RELEASE:=15
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/luci-app-adguardhome
+define Package/luci-app-adguardhome-wmd
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
@@ -20,7 +20,7 @@ define Package/luci-app-adguardhome
 	DEPENDS:=+!wget-ssl&&!curl:wget-ssl +adguardhome-wmd +smartdns-wmd
 endef
 
-define Package/luci-app-adguardhome/description
+define Package/luci-app-adguardhome-wmd/description
 	LuCI support for adguardhome
 endef
 
@@ -30,12 +30,14 @@ endef
 define Build/Compile
 endef
 
-define Package/luci-app-adguardhome/conffiles
+define Package/luci-app-adguardhome-wmd/conffiles
 /usr/share/AdGuardHome/links.txt
 /etc/config/AdGuardHome
+/etc/AdGuardHome.yaml
+/etc/AdGuardHome/
 endef
 
-define Package/luci-app-adguardhome/install
+define Package/luci-app-adguardhome-wmd/install
     $(INSTALL_DIR) $(1)/usr/lib/lua/luci
 	cp -pR ./luasrc/* $(1)/usr/lib/lua/luci
 	$(INSTALL_DIR) $(1)/
@@ -44,7 +46,7 @@ define Package/luci-app-adguardhome/install
 	po2lmo ./po/zh-cn/AdGuardHome.po $(1)/usr/lib/lua/luci/i18n/AdGuardHome.zh-cn.lmo
 endef
 
-define Package/luci-app-adguardhome/postinst
+define Package/luci-app-adguardhome-wmd/postinst
 #!/bin/sh
 	/etc/init.d/AdGuardHome enable >/dev/null 2>&1
 	enable=$(uci get AdGuardHome.AdGuardHome.enabled 2>/dev/null)
@@ -56,7 +58,7 @@ define Package/luci-app-adguardhome/postinst
 exit 0
 endef
 
-define Package/luci-app-adguardhome/prerm
+define Package/luci-app-adguardhome-wmd/prerm
 #!/bin/sh
 if [ -z "$${IPKG_INSTROOT}" ]; then
      /etc/init.d/AdGuardHome disable
@@ -69,4 +71,4 @@ fi
 exit 0
 endef
 
-$(eval $(call BuildPackage,luci-app-adguardhome))
+$(eval $(call BuildPackage,luci-app-adguardhome-wmd))
