@@ -24,7 +24,7 @@ endef
 
 
 define Package/$(PKG_NAME)/description
-Network-wide ads & trackers blocking DNS server
+Network-wide ads & trackers blocking DNS server (Modified by Wang Mingde)
 endef
 
 STRIP:=true
