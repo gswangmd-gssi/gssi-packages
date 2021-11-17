@@ -14,7 +14,7 @@ define Package/luci-app-adguardhome-wmd
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
-	TITLE:=LuCI app for adguardhome (Modified by Wang Mingde)
+	TITLE:=LuCI app for adguardhome 
 	PKG_MAINTAINER:=<https://github.com/rufengsuixing/luci-app-adguardhome>
 	PKGARCH:=all
 	DEPENDS:=+!wget-ssl&&!curl:wget-ssl +adguardhome-wmd +smartdns-wmd
