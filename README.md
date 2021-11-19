@@ -4,6 +4,6 @@
  - adguardhome-wmd
  - smartdns-wmd
    - 端口号: 6053/5353
-   - 无重定向, 6053供adguardhome作为上有服务器使用
+   - 无重定向, 6053供adguardhome作为上游服务器使用
   - 
  - 三插件共同搭配使用.
