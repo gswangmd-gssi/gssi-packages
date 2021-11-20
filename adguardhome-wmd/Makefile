@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome-wmd
 PROJECT_NAME:=AdGuardHome
-PKG_VERSION:=v0.106.3
+PKG_VERSION:=v0.107.0-b.14
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -80,7 +80,7 @@ endef
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/AdGuardHome
+	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/$(PROJECT_NAME)
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
