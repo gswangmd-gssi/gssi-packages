@@ -4,6 +4,6 @@
  - adguardhome-wmd
  - smartdns-wmd
    - 端口号: 6053/5353
-   - 6053作为dnsmasq的上游服务器使用
+   - 重定向：6053端口作为dnsmasq的上游服务器使用
   - 
  - 三插件共同搭配使用.
