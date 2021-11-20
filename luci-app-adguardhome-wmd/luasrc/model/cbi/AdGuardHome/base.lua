@@ -61,9 +61,9 @@ if (port == "") then port = "?" end
 
 ---- Redirect
 o = s:option(ListValue, "redirect", port .. translate("Redirect"), translate("AdGuardHome redirect mode"))
-o.placeholder = "dnsmasq-upstream"
-o:value("dnsmasq-upstream", translate("Run as dnsmasq upstream server"))
-o.default = "dnsmasq-upstream"
+o.placeholder = "redirect"
+o:value("redirect", translate("Redirect 53 port to AdGuardHome"))
+o.default = "redirect"
 o.optional = true
 
 ---- bin path
