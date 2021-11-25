@@ -13,7 +13,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=adguardhome-wmd
 PROJECT_NAME:=AdGuardHome
 PKG_VERSION:=v0.107.0-b.15
-PKG_RELEASE:=$(AUTORELEASE)
+PKG_RELEASE:=3
 
 include $(INCLUDE_DIR)/package.mk
 
