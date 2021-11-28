@@ -14,6 +14,7 @@ PKG_NAME:=adguardhome-wmd
 PROJECT_NAME:=AdGuardHome
 PKG_VERSION:=v0.107.0-b.15
 PKG_RELEASE:=
+PKG_HASH:=skip
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -66,8 +67,6 @@ PKG_SOURCE:=$(TAR_NAME).tar.gz
 PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome/releases/download/$(PKG_VERSION)/
 
 UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/$(PKG_ARCH_ADGUARDHOME)
-
-PKG_HASH:=skip
 
 define Build/Prepare
 	mkdir -vp $(UNTAR_DIR)
