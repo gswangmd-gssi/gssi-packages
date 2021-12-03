@@ -25,7 +25,6 @@ define Package/$(PKG_NAME)
 	URL:=https://github.com/AdguardTeam/AdGuardHome
 endef
 
-
 define Package/$(PKG_NAME)/description
 Network-wide ads & trackers blocking DNS server 
 endef
@@ -61,11 +60,8 @@ ifeq ($(ARCH),aarch64)
 endif
 
 TAR_NAME:=AdGuardHome_linux_$(PKG_ARCH_ADGUARDHOME)
-
 PKG_SOURCE:=$(TAR_NAME).tar.gz
-
 PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome/releases/download/$(PKG_VERSION)/
-
 UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/$(PKG_ARCH_ADGUARDHOME)
 
 define Build/Prepare
