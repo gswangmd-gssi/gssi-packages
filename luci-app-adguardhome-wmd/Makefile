@@ -34,7 +34,7 @@ endef
 
 define Package/luci-app-adguardhome-wmd/conffiles
 /usr/share/AdGuardHome/links.txt
-/etc/AdGuardHome/
+/etc/AdGuardHome/data/filters/
 endef
 
 define Package/luci-app-adguardhome-wmd/install
