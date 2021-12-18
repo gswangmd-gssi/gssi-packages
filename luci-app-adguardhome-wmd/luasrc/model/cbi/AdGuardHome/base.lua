@@ -61,6 +61,7 @@ if (port == "") then port = "?" end
 
 ---- Redirect
 o = s:option(ListValue, "redirect", port .. translate("Redirect"), translate("AdGuardHome redirect mode"))
+o.placeholder = "none"
 o.placeholder = "redirect"
 o:value("redirect", translate("Redirect 53 port to AdGuardHome"))
 o.default = "redirect"
