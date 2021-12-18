@@ -1,4 +1,4 @@
-自用插件:
+自用插件:（自用packages 请勿Fork）
  - luc-app-adguardhome-wmd 
    - 5553重定向模式:53端口重定向到AdGuardHome
  - adguardhome-wmd
