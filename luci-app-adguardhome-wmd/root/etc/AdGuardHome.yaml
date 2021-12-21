@@ -8,7 +8,6 @@ auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""
 language: ""
-rlimit_nofile: 0
 debug_pprof: false
 web_session_ttl: 720
 dns:
@@ -18,7 +17,7 @@ dns:
   statistics_interval: 30
   querylog_enabled: false
   querylog_file_enabled: true
-  querylog_interval: 30
+  querylog_interval: 720h
   querylog_size_memory: 1000
   anonymize_client_ip: false
   protection_enabled: true
@@ -38,15 +37,20 @@ dns:
   - 233.5.5.5
   all_servers: true
   fastest_addr: false
+  fastest_timeout: 1s
   allowed_clients: []
   disallowed_clients: []
   blocked_hosts:
   - version.bind
   - id.server
   - hostname.bind
+  trusted_proxies:
+  - 127.0.0.0/8
+  - ::1/128
   cache_size: 4194304
   cache_ttl_min: 0
   cache_ttl_max: 0
+  cache_optimistic: true
   bogus_nxdomain: []
   aaaa_disabled: true
   enable_dnssec: true
@@ -64,8 +68,10 @@ dns:
   cache_time: 30
   rewrites: []
   blocked_services: []
+  upstream_timeout: 10s
   local_domain_name: lan
   resolve_clients: true
+  use_private_ptr_resolvers: true
   local_ptr_upstreams: []
 tls:
   enabled: false
@@ -120,4 +126,8 @@ log_max_size: 100
 log_max_age: 3
 log_file: ""
 verbose: false
-schema_version: 10
+os:
+  group: ""
+  user: ""
+  rlimit_nofile: 0
+schema_version: 12
