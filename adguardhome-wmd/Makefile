@@ -14,8 +14,6 @@ PKG_NAME:=adguardhome-wmd
 PROJECT_NAME:=AdGuardHome
 PKG_VERSION:=v0.107.0
 PKG_RELEASE:=
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=0aac9908c1d47d5a5d6d0bffd0be5fdcc2356d95
 PKG_HASH:=skip
 
 include $(INCLUDE_DIR)/package.mk
