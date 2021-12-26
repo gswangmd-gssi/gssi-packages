@@ -1,83 +1,71 @@
 #
-# Copyright (C) 2019 OpenWrt.org
-#
-# KFERMercer <KFER.Mercer@gmail.com>
-#
-# This is free software, licensed under the GNU General Public License v3.
-#
-# Modifield by wangmingde 2021-11-22
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+# Modofield By Wangmingde 2021-12-26
 #
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome-wmd
-PROJECT_NAME:=AdGuardHome
-PKG_VERSION:=v0.107.0
-PKG_RELEASE:=
-PKG_HASH:=skip
+PKG_VERSION:=0.107.0
+PKG_RELEASE:=1
+
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=v$(PKG_VERSION)
+PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome
+PKG_MIRROR_HASH:=7bb70a3cdbde0d4c451454369317e6265832bcf6743c44fae7df7e3f8a37a108
+
+PKG_LICENSE:=GPL-3.0-only
+PKG_LICENSE_FILES:=LICENSE.txt
+PKG_MAINTAINER:=Dobroslaw Kijowski <dobo90@gmail.com>
+
+PKG_BUILD_DEPENDS:=golang/host node/host node-yarn/host
+PKG_BUILD_PARALLEL:=1
+PKG_USE_MIPS16:=0
+
+GO_PKG:=github.com/AdguardTeam/AdGuardHome
+GO_PKG_BUILD_PKG:=github.com/AdguardTeam/AdGuardHome
+
+AGH_BUILD_TIME:=$(shell date -d @$(SOURCE_DATE_EPOCH) +%FT%TZ%z)
+AGH_VERSION_PKG:=github.com/AdguardTeam/AdGuardHome/internal/version
+GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
+	$(AGH_VERSION_PKG).version=$(PKG_SOURCE_VERSION) \
+	$(AGH_VERSION_PKG).buildtime=$(AGH_BUILD_TIME) \
+	$(AGH_VERSION_PKG).goarm=$(GO_ARM) \
+	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
 
 include $(INCLUDE_DIR)/package.mk
+include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-define Package/$(PKG_NAME)
+define Package/adguardhome-wmd
 	SECTION:=net
 	CATEGORY:=Network
-	TITLE:=Network-wide ads & trackers blocking DNS server
+	TITLE:=Network-wide ads and trackers blocking DNS server
 	URL:=https://github.com/AdguardTeam/AdGuardHome
+	DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
-define Package/$(PKG_NAME)/description
-Network-wide ads & trackers blocking DNS server 
+define Package/adguardhome-wmd/conffiles
+/etc/adguardhome.yaml
+/etc/config/adguardhome
 endef
 
-STRIP:=true
-
-ifeq ($(ARCH),i386)
-	PKG_ARCH_ADGUARDHOME:=386
-endif
-
-ifeq ($(ARCH),x86_64)
-	PKG_ARCH_ADGUARDHOME:=amd64
-endif
-
-ifeq ($(ARCH),mipsel)
-	PKG_ARCH_ADGUARDHOME:=mipsle
-endif
-
-ifeq ($(ARCH),mips)
-	PKG_ARCH_ADGUARDHOME:=mips
-endif
-
-ifeq ($(ARCH),arm)
-	PKG_ARCH_ADGUARDHOME:=arm
-endif
-
-ifeq ($(ARCH),arm64)
-	PKG_ARCH_ADGUARDHOME:=arm64
-endif
-
-ifeq ($(ARCH),aarch64)
-	PKG_ARCH_ADGUARDHOME:=arm64
-endif
-
-TAR_NAME:=AdGuardHome_linux_$(PKG_ARCH_ADGUARDHOME)
-PKG_SOURCE:=$(TAR_NAME).tar.gz
-PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome/releases/download/$(PKG_VERSION)/
-UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/$(PKG_ARCH_ADGUARDHOME)
-
-define Build/Prepare
-	mkdir -vp $(UNTAR_DIR)
-	tar -zxvf $(DL_DIR)/$(PKG_SOURCE) -C $(UNTAR_DIR)
-endef
-
-define Build/Configure
+define Package/adguardhome-wmd/description
+Free and open source, powerful network-wide ads and trackers blocking DNS server.
 endef
 
 define Build/Compile
+	( \
+		pushd $(PKG_BUILD_DIR) ; \
+		make js-deps js-build ; \
+		popd ; \
+		$(call GoPackage/Build/Compile) ; \
+	)
 endef
 
-define Package/$(PKG_NAME)/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(UNTAR_DIR)/*/$(PROJECT_NAME) $(1)/usr/bin/$(PROJECT_NAME)
+define Package/adguardhome-wmd/install
+	$(call GoPackage/Package/Install/Bin,$(1))
 endef
 
-$(eval $(call BuildPackage,$(PKG_NAME)))
+$(eval $(call GoBinPackage,adguardhome-wmd))
+$(eval $(call BuildPackage,adguardhome-wmd))
