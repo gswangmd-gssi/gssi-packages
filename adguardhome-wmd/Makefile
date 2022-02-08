@@ -7,7 +7,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome-wmd
-PKG_VERSION:=0.107.2
+PKG_VERSION:=0.107.3
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
