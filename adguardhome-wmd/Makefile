@@ -7,11 +7,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome-wmd
-PKG_VERSION:=0.107.3
+PKG_VERSION:=0.107.4
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=1bc2186c2deaddb1a7c70f0d4fad0d0d03433cbc
+PKG_SOURCE_VERSION:=dd2153b7ac2094b4f04ef9bcae6c8f5681ad61d6
 PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome
 PKG_MIRROR_HASH:=skip
 
