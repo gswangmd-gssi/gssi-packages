@@ -15,7 +15,7 @@ PKG_RELEASE:=19
 PKG_SOURCE:=$(OLD_PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/pymumu/smartdns/tar.gz/$(PKG_VERSION)?
 PKG_HASH:=skip
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-Release$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(OLD_PKG_NAME)-Release$(PKG_VERSION)
 
 PKG_MAINTAINER:=Nick Peng <pymumu@gmail.com>
 PKG_LICENSE:=GPL-3.0-or-later
