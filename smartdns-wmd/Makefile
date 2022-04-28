@@ -9,11 +9,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=smartdns-wmd
 OLD_PKG_NAME:=smartdns
-PKG_VERSION:=Release36.1
+PKG_VERSION:=36.1
 PKG_RELEASE:=19
 
 PKG_SOURCE:=$(OLD_PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://codeload.github.com/pymumu/smartdns/tar.gz/$(PKG_VERSION)?
+PKG_SOURCE_URL:=https://codeload.github.com/pymumu/smartdns/tar.gz/Release$(PKG_VERSION)?
 PKG_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(OLD_PKG_NAME)-Release$(PKG_VERSION)
 
