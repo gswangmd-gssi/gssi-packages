@@ -64,7 +64,6 @@ o = s:option(ListValue, "redirect", port .. translate("Redirect"), translate("Ad
 o.placeholder = "none"
 o:value("none", translate("none"))
 o:value("dnsmasq-upstream", translate("Run as dnsmasq upstream server"))
-o:value("redirect", translate("Redirect 53 port to AdGuardHome"))
 o.default = "dnsmasq-upstream"
 o.optional = true
 
