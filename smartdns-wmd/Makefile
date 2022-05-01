@@ -1,7 +1,8 @@
 #
 # Copyright (c) 2018-2020 Nick Peng (pymumu@gmail.com)
 # This is free software, licensed under the GNU General Public License v3.
-#
+# Modofield for luci-app-adguardhome-wmd 
+# Wangmingde 2022-05-01
 
 include $(TOPDIR)/rules.mk
 
