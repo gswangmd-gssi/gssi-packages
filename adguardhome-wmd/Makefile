@@ -1,8 +1,8 @@
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
-# Modofield By Wangmingde 2021-12-26
-#
+# Modofield for luci-app-adguardhome-wmd 
+# Wangmingde 2022-05-01
 
 include $(TOPDIR)/rules.mk
 
