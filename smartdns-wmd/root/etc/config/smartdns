@@ -15,7 +15,7 @@ config smartdns
 	option serve_expired '1'
 	option redirect 'dnsmasq-upstream'
 	option rr_ttl_min '300'
-	option seconddns_port '7913'
+	option seconddns_port '5335'
 	option seconddns_enabled '1'
 	option seconddns_no_rule_nameserver '1'
 	option seconddns_no_rule_addr '0'
