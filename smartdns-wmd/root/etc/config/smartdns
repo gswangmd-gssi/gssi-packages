@@ -91,4 +91,5 @@ config server
 	option type 'tls'
 	option server_group 'passwall'
 	option blacklist_ip '0'
-	option addition_arg '-host-name dns.google -exclude-default-group'
+	option addition_arg ' -exclude-default-group'
+
