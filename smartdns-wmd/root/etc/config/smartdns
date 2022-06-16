@@ -56,6 +56,24 @@ config server
 	option enabled '1'
 
 config server
+	option type 'udp'
+	option port '53'
+	option name 'LanzhouDNS-1'
+	option ip '61.178.0.93'
+	option blacklist_ip '0'
+	option server_group 'cn'
+	option enabled '1'
+	
+config server
+	option type 'udp'
+	option port '53'
+	option name 'LanzhouDNS-2'
+	option ip '202.100.64.68'
+	option blacklist_ip '0'
+	option server_group 'cn'
+	option enabled '1'
+
+config server
 	option enabled '1'
 	option name 'cloud'
 	option ip '1.1.1.1'
@@ -67,9 +85,10 @@ config server
 
 config server
 	option enabled '1'
-	option type 'udp'
-	option name 'CNNIC SDNS'
-	option ip '1.2.4.8'
-	option port '53'
-	option server_group 'cn'
+	option name 'Google'
+	option ip '8.8.8.8'
+	option port '853'
+	option type 'tls'
+	option server_group 'passwall'
 	option blacklist_ip '0'
+	option addition_arg '-host-name dns.google -exclude-default-group'
