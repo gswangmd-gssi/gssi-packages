@@ -70,8 +70,7 @@ dns:
   rewrites: []
   blocked_services: []
   upstream_timeout: 10s
-  local_domain_name: lan
-  resolve_clients: true
+  private_networks: []
   use_private_ptr_resolvers: true
   local_ptr_upstreams: []
 tls:
@@ -92,12 +91,28 @@ tls:
 filters:
 - enabled: true
   url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
-  name: AdGuard DNS filter
-  id: 1637138243
+  name: AdGuard Simplified Domain Names filter
+  id: 1
 - enabled: true
-  url: https://anti-ad.net/easylist.txt
-  name: 'CHN: anti-AD'
-  id: 1637138244
+  url: https://adaway.org/hosts.txt
+  name: AdAway
+  id: 2
+- enabled: true
+  url: https://raw.githubusercontent.com/vokins/yhosts/master/data/tvbox.txt
+  name: tvbox
+  id: 1575018007
+- enabled: true
+  url: http://sbc.io/hosts/hosts
+  name: StevenBlack host basic
+  id: 1575618242
+- enabled: true
+  url: http://sbc.io/hosts/alternates/fakenews-gambling-porn-social/hosts
+  name: StevenBlack host+fakenews + gambling + porn + social
+  id: 1575618243
+- enabled: true
+  url: https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD/anti-ad-easylist.txt
+  name: anti-AD(Adblock+neohosts+yhosts+cjxlist+adhlist)
+  id: 1577113202
 whitelist_filters: []
 user_rules:
 - '@@||10jqka.com.cn^'
@@ -106,6 +121,7 @@ user_rules:
 dhcp:
   enabled: false
   interface_name: ""
+  local_domain_name: lan
   dhcpv4:
     gateway_ip: ""
     subnet_mask: ""
@@ -119,7 +135,14 @@ dhcp:
     lease_duration: 86400
     ra_slaac_only: false
     ra_allow_slaac: false
-clients: []
+clients:
+  runtime_sources:
+    whois: true
+    arp: true
+    rdns: true
+    dhcp: true
+    hosts: true
+  persistent: []
 log_compress: false
 log_localtime: false
 log_max_backups: 0
@@ -131,4 +154,4 @@ os:
   group: ""
   user: ""
   rlimit_nofile: 0
-schema_version: 12
+schema_version: 14
