@@ -17,7 +17,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/gssiwmd-default-settings
   SECTION:=luci
   CATEGORY:=LuCI
-  TITLE:=LuCI support for Default Settings
+  TITLE:=LuCI support for Default Settings (Modifield By WangMingde)
   PKGARCH:=all
   DEPENDS:=+luci-base +luci +@LUCI_LANG_zh-cn
 endef
