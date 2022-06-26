@@ -14,7 +14,7 @@ PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/gssiwmd-default-settings
+define Package/$(PKG_NAME)
   SECTION:=luci
   CATEGORY:=LuCI
   TITLE:=LuCI support for Default Settings (Modifield By WangMingde)
@@ -22,14 +22,14 @@ define Package/gssiwmd-default-settings
   DEPENDS:=+luci-base +luci +@LUCI_LANG_zh-cn
 endef
 
-define Package/gssiwmd-default-settings/description
+define Package/$(PKG_NAME)/description
 	Language Support Packages.
 endef
 
 define Build/Compile
 endef
 
-define Package/gssiwmd-default-settings/install
+define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/zzz-default-settings $(1)/etc/uci-defaults/99-default-settings
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
@@ -38,4 +38,4 @@ define Package/gssiwmd-default-settings/install
 	$(INSTALL_BIN) ./files/sysinfo.sh $(1)/etc/profile.d/sysinfo.sh
 endef
 
-$(eval $(call BuildPackage,gssiwmd-default-settings))
+$(eval $(call BuildPackage,$(PKG_NAME)))
