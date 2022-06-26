@@ -1,6 +1,6 @@
 自用插件:（自用packages 请勿Fork）
  - luc-app-adguardhome-wmd 
-   - 5553重定向模式:53端口重定向到AdGuardHome
+   - 1745重定向模式:53端口重定向到AdGuardHome
  - adguardhome-wmd
  - smartdns-wmd
    - 端口号: 6053/5335
