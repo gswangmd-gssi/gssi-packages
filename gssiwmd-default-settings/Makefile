@@ -40,7 +40,7 @@ define Package/$(PKG_NAME)/install
 	
 	# install README file
 	$(INSTALL_DIR) $(1)/etc/readme
-	$(INSTALL_DADA) ./files/README.md $(1)/etc/readme/README.md
+	cp ./files/README.md $(1)/etc/readme/README.md
 	
 endef
 
