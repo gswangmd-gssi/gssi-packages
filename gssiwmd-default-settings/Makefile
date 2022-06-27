@@ -19,24 +19,22 @@ define Package/$(PKG_NAME)
   CATEGORY:=LuCI
   TITLE:=LuCI support for GSSIWMD Settings
   PKGARCH:=all
-  DEPENDS:=+luci-base +luci +@LUCI_LANG_zh-cn
+  DEPENDS:=+luci-base
 endef
 
 define Package/$(PKG_NAME)/description
 	Language Support Packages.
 endef
 
+define Build/Prepare
+	chmod -R +x ./files/bin ./files/sbin ./files/etc/profile.d ./files/etc/rc.d ./files/usr/share target/*/{*,}/files/{etc/init.d,usr/bin} >/dev/null || true
+endef
+
 define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
-	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/zzz-default-settings $(1)/etc/uci-defaults/99-gssiwmd-default-settings
-	
-	# install README file
-	$(INSTALL_DIR) $(1)/etc/readme
-	cp ./files/README.md $(1)/etc/readme/README.md
-	
+	$(CP) ./files/* $(1)/	
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
