@@ -14,4 +14,17 @@ config interface 'lan'
 	option broadcast '10.10.10.255'
 	option type 'bridge'
 
+config interface 'wan'
+	option ifname 'eth0'
+	option _orig_ifname 'eth0'
+	option _orig_bridge 'false'
+	option proto 'pppoe'
+	option username '0931lz3646265'
+	option password '12345678'
+	option keepalive '0'
+	option ipv6 '0'
+
+config device
+	option type 'bridge'
+	option name 'docker0'
 
