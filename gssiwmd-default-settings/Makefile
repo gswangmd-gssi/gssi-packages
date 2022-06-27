@@ -35,9 +35,6 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo ./po/zh-cn/default.po $(1)/usr/lib/lua/luci/i18n/default.zh-cn.lmo
 	
-	$(INSTALL_DIR) $(1)/etc/profile.d
-	$(INSTALL_BIN) ./files/sysinfo.sh $(1)/etc/profile.d/sysinfo.sh
-	
 	# install README file
 	$(INSTALL_DIR) $(1)/etc/readme
 	cp ./files/README.md $(1)/etc/readme/README.md

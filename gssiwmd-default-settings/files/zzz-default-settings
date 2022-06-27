@@ -1,28 +1,10 @@
 #!/bin/sh
 
-uci set luci.main.lang=zh_cn
-uci commit luci
-
-uci set system.@system[0].timezone=CST-8
-uci set system.@system[0].zonename=Asia/Shanghai
-uci commit system
-
-uci set fstab.@global[0].anon_mount=1
-uci commit fstab
-
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 echo "DISTRIB_REVISION='(Modifield by WMD)'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
-
-sed -i '/log-facility/d' /etc/dnsmasq.conf
-echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
-
-echo 'hsts=0' > /root/.wgetrc
-
-rm -rf /tmp/luci-modulecache/
-rm -f /tmp/luci-indexcache
 
 exit 0
