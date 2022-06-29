@@ -8,6 +8,4 @@ sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 # Replace Hostname
 sed -i "s/hostname .*/hostname 'WMD-Router'/" /etc/config/system
-# change password for root
-sed -i 's/root:.*/root:$1$cA9/Hiub$0JyE8LfZikVOHx3WxDfej0:19172:0:99999:7:::/g' /etc/shadow
 exit 0
