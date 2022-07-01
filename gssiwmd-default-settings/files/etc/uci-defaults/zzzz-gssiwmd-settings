@@ -7,7 +7,7 @@ echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 # Replace Hostname
-sed -i "s/hostname .*/hostname 'wmdWRT'/" /etc/config/system
+sed -i "s/hostname .*/hostname 'OpenWRT'/" /etc/config/system
 # Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
 exit 0
