@@ -34,7 +34,7 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
-	$(CP) ./files/* $(1)/	
+	$(CP) -f ./files/* $(1)/	
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
