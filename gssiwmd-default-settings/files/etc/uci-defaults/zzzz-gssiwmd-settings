@@ -8,11 +8,9 @@ uci commit system
 
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
-DISTRIB_ID='ImmortalWrt'
 
 sed -i '/DISTRIB_ID/d' /etc/openwrt_release
 echo "DISTRIB_ID='HomeRouter'" >> /etc/openwrt_release
-
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 echo "DISTRIB_REVISION='(Compiled by WMD)'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
