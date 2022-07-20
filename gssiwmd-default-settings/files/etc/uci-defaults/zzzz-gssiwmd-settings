@@ -24,6 +24,6 @@ sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /
 
 mv /etc/gssiwmd_banner /etc/banner
 
-mv /etc/sysinfo.sh /etc/profile.d/sysinfo.sh
+mv /etc/gssiwmd_sysinfo.sh /etc/profile.d/sysinfo.sh
 
 exit 0
