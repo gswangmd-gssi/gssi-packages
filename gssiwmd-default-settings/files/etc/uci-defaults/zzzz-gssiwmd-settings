@@ -21,4 +21,7 @@ echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_rele
 sed -i "s/hostname .*/hostname 'HomeWrt'/" /etc/config/system
 # Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
+
+mv /etc/gssiwmd_banner /etc/banner
+
 exit 0
