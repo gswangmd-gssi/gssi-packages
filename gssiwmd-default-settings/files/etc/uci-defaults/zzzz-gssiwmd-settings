@@ -10,15 +10,15 @@ uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
 sed -i '/DISTRIB_ID/d' /etc/openwrt_release
-echo "DISTRIB_ID='MingdeWrt'" >> /etc/openwrt_release
+echo "DISTRIB_ID='gssiWMD'" >> /etc/openwrt_release
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 echo "DISTRIB_REVISION='(Compiled by WMD)'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='MingdeWrt '" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='gssiWMD '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 # Replace Hostname
-sed -i "s/hostname .*/hostname 'MingdeWrt'/" /etc/config/system
+sed -i "s/hostname .*/hostname 'gssiWMD'/" /etc/config/system
 # Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
 
