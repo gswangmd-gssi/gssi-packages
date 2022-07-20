@@ -14,7 +14,7 @@ echo "DISTRIB_ID='HomeWrt'" >> /etc/openwrt_release
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 echo "DISTRIB_REVISION='(Compiled by WMD)'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='HomeWrt '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 # Replace Hostname
