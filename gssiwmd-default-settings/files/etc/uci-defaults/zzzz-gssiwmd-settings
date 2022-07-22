@@ -11,8 +11,8 @@ uci commit fstab
 
 sed -i '/DISTRIB_ID/d' /etc/openwrt_release
 echo "DISTRIB_ID='gssiRouter '" >> /etc/openwrt_release
-# sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-# echo "DISTRIB_REVISION='(Compiled by WMD)'" >> /etc/openwrt_release
+sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+echo "DISTRIB_REVISION='$(date "+%Y-%m-%d")'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
