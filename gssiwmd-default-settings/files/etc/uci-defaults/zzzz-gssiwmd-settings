@@ -16,7 +16,7 @@ echo "DISTRIB_REVISION='$(date "+%Y-%m-%d")'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
-echo "DISTRIB_LASTMODIFIELD='$(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
+echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 # Replace Hostname
 sed -i "s/hostname .*/hostname 'gssiRouter'/" /etc/config/system
 # Default password of root
