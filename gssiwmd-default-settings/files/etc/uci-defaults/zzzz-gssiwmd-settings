@@ -13,9 +13,7 @@ echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")
 uci set system.@system[-1].hostname='gssiRouter'
 uci set system.@system[-1].timezone='CTS-8'
 uci set system.@system[-1].zonename='Asia/Shanghai' 
-uci commit
-
-# set network lan
+# set network lan...
 uci set network.lan.proto='static'
 uci set network.lan.device='br-lan'
 uci set network.lan.ipaddr='10.10.10.254'
