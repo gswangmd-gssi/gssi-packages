@@ -9,9 +9,21 @@ echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 
-# set Hostname
+# set system Hostname/timezone/zonename
 uci set system.@system[-1].hostname='gssiRouter'
+uci set system.@system[-1].timezone='CTS-8'
+uci set system.@system[-1].zonename='Asia/Shanghai' 
 uci commit
+
+# set network lan
+uci set network.lan.proto='static'
+uci set network.lan.device='br-lan'
+uci set network.lan.ipaddr='10.10.10.254'
+uci set network.lan.netmask='255.255.255.0'
+uci set network.lan.broadcast='10.10.10.255'
+uci set network.lan.dns='127.0.0.1'
+uci commit
+
 
 # Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
