@@ -1,14 +1,4 @@
 #!/bin/sh
-
-sed -i '/DISTRIB_ID/d' /etc/openwrt_release
-echo "DISTRIB_ID='gssiRouter '" >> /etc/openwrt_release
-sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-echo "DISTRIB_REVISION='$(date "+%Y-%m-%d")'" >> /etc/openwrt_release
-sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
-sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
-echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
-
 # set system Hostname/timezone/zonename
 uci set system.@system[-1].hostname='gssiRouter'
 uci set system.@system[-1].timezone='CTS-8'
@@ -22,11 +12,23 @@ uci set network.lan.broadcast='10.10.10.255'
 uci set network.lan.dns='223.5.5.5 114.114.114.114'
 uci commit
 
+# Set file /etc/openwrt_release
+sed -i '/DISTRIB_ID/d' /etc/openwrt_release
+echo "DISTRIB_ID='gssiRouter '" >> /etc/openwrt_release
+sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+echo "DISTRIB_REVISION='$(date "+%Y-%m-%d")'" >> /etc/openwrt_release
+sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
+sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
+echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
 
-# Default password of root
+# Set Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
 
+# Set banner
 mv /etc/gssiwmd_banner /etc/banner
+
+# Set sysinfo.sh
 mv /etc/gssiwmd_sysinfo.sh /etc/profile.d/sysinfo.sh
 
 exit 0
