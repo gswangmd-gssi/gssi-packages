@@ -3,6 +3,8 @@
 uci set system.@system[-1].hostname='gssiRouter'
 uci set system.@system[-1].timezone='CTS-8'
 uci set system.@system[-1].zonename='Asia/Shanghai' 
+uci commit system
+
 # set network lan...
 uci set network.lan.proto='static'
 uci set network.lan.device='br-lan'
@@ -10,7 +12,7 @@ uci set network.lan.ipaddr='10.10.10.254'
 uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.broadcast='10.10.10.255'
 uci set network.lan.dns='223.5.5.5 114.114.114.114'
-uci commit
+uci commit network
 
 # Set file /etc/openwrt_release
 sed -i '/DISTRIB_ID/d' /etc/openwrt_release
