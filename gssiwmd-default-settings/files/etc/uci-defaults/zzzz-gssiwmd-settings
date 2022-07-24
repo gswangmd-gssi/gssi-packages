@@ -17,13 +17,18 @@ sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='gssiRouter '" >> /etc/openwrt_release
 sed -i '/DISTRIB_LASTMODIFIELD/d' /etc/openwrt_release
 echo "DISTRIB_LASTMODIFIELD='Compiled by Wangmingde $(date "+%Y-%m-%d %H:%M:%S")'" >> /etc/openwrt_release
-# Replace Hostname
-sed -i "s/hostname .*/hostname 'gssiRouter'/" /etc/config/system
-# Default password of root
+# Replace system
+# sed -i "s/hostname .*/hostname 'gssiRouter'/" /etc/config/system
+
+#Default password of root
 sed -i 's/root:.*/root:$1$Ds8BJ34B$Lm19IlaiTFvnFFLYDvEU6.:19172:0:99999:7:::/' /etc/shadow
 
 mv /etc/gssiwmd_banner /etc/banner
 
+mv /etc/gssiwmd_system /etc/config/system
+
 mv /etc/gssiwmd_sysinfo.sh /etc/profile.d/sysinfo.sh
+
+
 
 exit 0
