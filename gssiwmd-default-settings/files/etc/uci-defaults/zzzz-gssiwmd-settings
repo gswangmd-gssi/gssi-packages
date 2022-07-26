@@ -14,12 +14,14 @@ EOF
 uci commit system
 
 # set network lan...
-uci set network.lan.proto='static'
-uci set network.lan.device='br-lan'
-uci set network.lan.ipaddr='10.10.10.254'
-uci set network.lan.netmask='255.255.255.0'
-uci set network.lan.broadcast='10.10.10.255'
-uci set network.lan.dns='223.5.5.5 114.114.114.114'
+uci -q batch <<-EOF
+	uci set network.lan.proto='static'
+	uci set network.lan.device='br-lan'
+	uci set network.lan.ipaddr='10.10.10.254'
+	uci set network.lan.netmask='255.255.255.0'
+	uci set network.lan.broadcast='10.10.10.255'
+	uci set network.lan.dns='223.5.5.5 223.6.6.6'
+EOF
 uci commit network
 
 # Set file /etc/openwrt_release
