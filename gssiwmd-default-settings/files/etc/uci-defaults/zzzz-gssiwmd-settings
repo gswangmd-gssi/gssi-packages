@@ -1,6 +1,7 @@
 #!/bin/sh
 # set system Hostname/timezone/zonename
 uci -q batch <<-EOF
+	set system.@system[0].hostname='gssiRouter'
 	set system.@system[0].timezone='CST-8'
 	set system.@system[0].zonename='Asia/Shanghai'
 
