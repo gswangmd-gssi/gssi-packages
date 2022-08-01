@@ -34,7 +34,7 @@ config server
 	option port '53'
 	option type 'udp'
 	option blacklist_ip '0'
-	option server_group 'cn'
+	option server_group 'local'
 	option enabled '1'
 
 config server
@@ -43,7 +43,7 @@ config server
 	option port '53'
 	option type 'udp'
 	option blacklist_ip '0'
-	option server_group 'cn'
+	option server_group 'local'
 	option enabled '1'
 
 config server
@@ -52,7 +52,7 @@ config server
 	option name 'DNSPod'
 	option ip '119.29.29.29'
 	option blacklist_ip '0'
-	option server_group 'cn'
+	option server_group 'local'
 	option enabled '1'
 
 config server
@@ -61,7 +61,7 @@ config server
 	option name 'LanzhouDNS-1'
 	option ip '61.178.0.93'
 	option blacklist_ip '0'
-	option server_group 'cn'
+	option server_group 'local'
 	option enabled '1'
 	
 config server
@@ -70,7 +70,7 @@ config server
 	option name 'LanzhouDNS-2'
 	option ip '202.100.64.68'
 	option blacklist_ip '0'
-	option server_group 'cn'
+	option server_group 'local'
 	option enabled '1'
 
 config server
